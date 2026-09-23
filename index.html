@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muhammad Nabil</title>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- FAVICON -->
+    <link rel="apple-touch-icon" sizes="180x180"    href="favicon/iconTwo/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/iconTwo/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/iconTwo/favicon-16x16.png">
+    <link rel="manifest" href="favicon/iconTwo/site.webmanifest">
+
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+                    },
+                    colors: {
+                        apple: {
+                            bgLight: '#f5f5f7',
+                            cardLight: '#ffffff',
+                            textLight: '#1d1d1f',
+                            subLight: '#86868b',
+                            bgDark: '#000000',
+                            cardDark: '#161617',
+                            borderDark: '#2d2d2e',
+                            blue: '#2997ff',
+                            hoverBlue: '#0077ed'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom CSS Variables & Aesthetics */
+        :root {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f5f5f7;
+            --text-primary: #1d1d1f;
+            --text-secondary: #86868b;
+            --accent: #2997ff;
+            --border-color: rgba(0, 0, 0, 0.08);
+            --nav-bg: rgba(255, 255, 255, 0.8);
+        }
+
+        .dark {
+            --bg-primary: #000000;
+            --bg-secondary: #161617;
+            --text-primary: #f5f5f7;
+            --text-secondary: #86868b;
+            --accent: #2997ff;
+            --border-color: rgba(255, 255, 255, 0.12);
+            --nav-bg: rgba(22, 22, 23, 0.8);
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            transition: background-color 0.4s ease, color 0.4s ease;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            letter-spacing: -0.011em;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .glass-nav {
+            background-color: var(--nav-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .apple-card {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+
+        .apple-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.15);
+        }
+
+        .apple-btn-primary {
+            background-color: #0071e3;
+            color: #ffffff;
+            transition: all 0.2s ease;
+        }
+
+        .apple-btn-primary:hover {
+            background-color: #0077ed;
+            transform: scale(1.02);
+        }
+
+        .apple-btn-secondary {
+            background-color: rgba(136, 136, 136, 0.12);
+            color: var(--text-primary);
+            transition: all 0.2s ease;
+        }
+
+        .apple-btn-secondary:hover {
+            background-color: rgba(136, 136, 136, 0.22);
+            transform: scale(1.02);
+        }
+
+        /* 16:9 Aspect Ratio Container */
+        .aspect-16-9 {
+            aspect-ratio: 16 / 9;
+        }
+
+        /* Smooth Hide/Show Animations */
+        .fade-in {
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+
+
+<body class="antialiased selection:bg-blue-500 selection:text-white">
+
+    <!-- HEADER / NAVIGATION -->
+    <header class="fixed top-0 left-0 w-full z-50 glass-nav transition-colors duration-300">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#hero" class="flex items-center space-x-2 font-bold text-lg tracking-tight hover:opacity-80 transition-opacity">
+                <svg class="w-6 h-6 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                </svg>
+                <span>MUHAMMAD<span class="text-blue-500">NABIL</span></span>
+            </a>
+
+            <!-- Desktop Navigation Links -->
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-neutral-600 dark:text-neutral-300">
+                <a href="#hero" class="hover:text-blue-500 transition-colors" data-i18n="nav_home">Beranda</a>
+                <a href="#about" class="hover:text-blue-500 transition-colors" data-i18n="nav_about">Tentang</a>
+                <a href="#projects" class="hover:text-blue-500 transition-colors" data-i18n="nav_projects">Portofolio Video</a>
+                <a href="#experience" class="hover:text-blue-500 transition-colors" data-i18n="nav_exp">Pengalaman</a>
+                <a href="#contact" class="hover:text-blue-500 transition-colors" data-i18n="nav_contact">Kontak</a>
+            </nav>
+
+            <!-- Control Switchers (Lang & Theme) -->
+            <div class="flex items-center space-x-3">
+                <!-- Quick Download CV Button in Header -->
+                <a href="CV_Download/CV_Muhammad-Nabil.pdf" download="CV_Muhammad-Nabil.pdf" onclick="handleCVDownload(event)" class="hidden lg:flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold bg-neutral-900 dark:bg-white text-white dark:text-neutral-900 hover:opacity-90 transition-all shadow-sm" title="Unduh CV">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                    </svg>
+                    <span data-i18n="nav_cv">Unduh CV</span>
+                </a>
+
+                <!-- Language Toggle Button -->
+                <button id="langToggleBtn" onclick="toggleLanguage()" class="px-3 py-1.5 rounded-full text-xs font-semibold bg-neutral-200 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200 hover:opacity-80 transition-all flex items-center gap-1">
+                    <svg class="w-3.5 h-3.5 opacity-70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.6 9h16.8M3.6 15h16.8"/>
+                    </svg>
+                    <span id="langLabel">ID | EN</span>
+                </button>
+
+                <!-- Dark Mode Toggle Button -->
+                <button id="themeToggleBtn" onclick="toggleDarkMode()" aria-label="Toggle Dark Mode" class="p-2 rounded-full bg-neutral-200 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200 hover:opacity-80 transition-all">
+                    <!-- Sun Icon -->
+                    <svg id="sunIcon" class="w-4 h-4 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+                    </svg>
+                    <!-- Moon Icon -->
+                    <svg id="moonIcon" class="w-4 h-4 block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+                    </svg>
+                </button>
+
+                <!-- Mobile Menu Button -->
+                <button onclick="toggleMobileMenu()" class="md:hidden p-2 rounded-lg text-neutral-600 dark:text-neutral-300 hover:bg-neutral-200 dark:hover:bg-neutral-800 transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobileMenu" class="hidden md:hidden border-b border-neutral-200 dark:border-neutral-800 bg-white/95 dark:bg-neutral-900/95 backdrop-blur-lg px-4 pt-2 pb-6 space-y-3">
+            <a href="#hero" onclick="toggleMobileMenu()" class="block py-2 text-base font-medium text-neutral-700 dark:text-neutral-200" data-i18n="nav_home">Beranda</a>
+            <a href="#about" onclick="toggleMobileMenu()" class="block py-2 text-base font-medium text-neutral-700 dark:text-neutral-200" data-i18n="nav_about">Tentang</a>
+            <a href="#projects" onclick="toggleMobileMenu()" class="block py-2 text-base font-medium text-neutral-700 dark:text-neutral-200" data-i18n="nav_projects">Portofolio Video</a>
+            <a href="#experience" onclick="toggleMobileMenu()" class="block py-2 text-base font-medium text-neutral-700 dark:text-neutral-200" data-i18n="nav_exp">Pengalaman</a>
+            <a href="#contact" onclick="toggleMobileMenu()" class="block py-2 text-base font-medium text-neutral-700 dark:text-neutral-200" data-i18n="nav_contact">Kontak</a>
+            <a href="CV_Download/CV_Muhammad-Nabil.pdf" download="CV_Muhammad-Nabil.pdf" onclick="handleCVDownload(event)" class="inline-flex items-center gap-2 px-4 py-2 mt-2 rounded-full text-xs font-semibold bg-neutral-900 dark:bg-white text-white dark:text-neutral-900">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                </svg>
+                <span data-i18n="hero_btn_cv">Unduh CV (PDF)</span>
+            </a>
+        </div>
+    </header>
+
+    <main class="pt-16">
+        <!-- HERO SECTION -->
+        <section id="hero" class="min-h-[90vh] flex items-center justify-center px-4 sm:px-6 lg:px-8 py-20 text-center relative overflow-hidden">
+            <!-- Decorative Glow Background -->
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-blue-500/10 dark:bg-blue-600/15 rounded-full blur-3xl -z-10 pointer-events-none"></div>
+
+            <div class="max-w-4xl mx-auto space-y-8 fade-in">
+                <!-- Status Badge -->
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-neutral-100 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-neutral-600 dark:text-neutral-300">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                    <span data-i18n="hero_badge">Terbuka Untuk Freelance & Proyek Kreatif</span>
+                </div>
+
+                <!-- Main Tagline -->
+                <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.1]" data-i18n="hero_title">
+                    Visual Sinematik. <br>
+                    <span class="bg-gradient-to-r from-blue-600 via-indigo-500 to-sky-400 bg-clip-text text-transparent">Cerita Berdampak Tinggi.</span>
+                </h1>
+
+                <!-- Subtitle Description -->
+                <p class="max-w-2xl mx-auto text-lg sm:text-xl text-neutral-600 dark:text-neutral-400 font-normal leading-relaxed" data-i18n="hero_subtitle">
+                    Videographer & Video Editor independen. Mengubah momen menjadi narasi bergerak yang elegan, ritmis, dan memikat mata lewat teknik penyuntingan modern serta perataan warna presisi.
+                </p>
+
+                <!-- Hero Action Buttons -->
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 pt-4">
+                    <a href="#projects" class="w-full sm:w-auto px-7 py-3.5 rounded-full font-semibold text-sm apple-btn-primary shadow-lg shadow-blue-500/20 flex items-center justify-center gap-2">
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                            <path d="M8 5v14l11-7z"/>
+                        </svg>
+                        <span data-i18n="hero_btn_projects">Eksplor Portofolio</span>
+                    </a>
+                    <a href="assets/CV_Videographer_YourName.pdf" download="CV_Videographer_YourName.pdf" onclick="handleCVDownload(event)" class="w-full sm:w-auto px-7 py-3.5 rounded-full font-semibold text-sm bg-neutral-900 dark:bg-white text-white dark:text-neutral-900 hover:opacity-90 transition-all flex items-center justify-center gap-2 shadow-sm">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                        </svg>
+                        <span data-i18n="hero_btn_cv">Unduh CV (PDF)</span>
+                    </a>
+                    <a href="#contact" class="w-full sm:w-auto px-7 py-3.5 rounded-full font-semibold text-sm apple-btn-secondary flex items-center justify-center gap-2">
+                        <span data-i18n="hero_btn_contact">Diskusi Proyek</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- Quick Metric Highlights -->
+                <div class="pt-12 grid grid-cols-2 sm:grid-cols-3 gap-6 max-w-xl mx-auto border-t border-neutral-200 dark:border-neutral-800/80">
+                    <div>
+                        <p class="text-2xl sm:text-3xl font-extrabold tracking-tight">30+</p>
+                        <p class="text-xs text-neutral-500 dark:text-neutral-400 font-medium" data-i18n="stat_projects">Proyek Video Selesai</p>
+                    </div>
+                    <div>
+                        <p class="text-2xl sm:text-3xl font-extrabold tracking-tight">4K</p>
+                        <p class="text-xs text-neutral-500 dark:text-neutral-400 font-medium" data-i18n="stat_quality">Kualitas Sinematik</p>
+                    </div>
+                    <div class="col-span-2 sm:col-span-1">
+                        <p class="text-2xl sm:text-3xl font-extrabold tracking-tight">100%</p>
+                        <p class="text-xs text-neutral-500 dark:text-neutral-400 font-medium" data-i18n="stat_dedication">Komitmen Dedikasi</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT ME SECTION -->
+        <section id="about" class="py-24 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+            <div class="apple-card rounded-3xl p-8 sm:p-12 md:p-16 relative overflow-hidden">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    <!-- Text Info Column -->
+                    <div class="lg:col-span-7 space-y-6">
+                        <div class="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-blue-500/10 text-blue-600 dark:text-blue-400" data-i18n="about_tag">
+                            TENTANG SAYA
+                        </div>
+                        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight" data-i18n="about_title">
+                            Fokus pada Detail, Ritme Editing, dan Penceritaan Visual.
+                        </h2>
+                        <div class="space-y-4 text-neutral-600 dark:text-neutral-300 text-base leading-relaxed">
+                            <p data-i18n="about_p1">
+                                Halo! Saya seorang Videographer & Video Editor yang terbiasa mengolah gagasan mentah menjadi sajian audio-visual berkelas. Pengalaman saya mencakup pembuatan trailer promosi, video recap acara (aftermovie), hingga konten komersial berdurasi pendek.
+                            </p>
+                            <p data-i18n="about_p2">
+                                Berbekal pemahaman mendalam tentang pacing editing, sound design sinematik, serta teknik perataan warna (color grading), saya berfokus pada hasil akhir yang tidak hanya indah secara estetika tetapi juga efektif menyampaikan pesan utama kepada audiens.
+                            </p>
+                        </div>
+
+                        <!-- Action Buttons: Download CV -->
+                        <div class="pt-4 flex flex-wrap items-center gap-4">
+                            <!-- Download CV Button -->
+                            <!-- Catatan: Ganti 'assets/CV_Videographer_YourName.pdf' dengan path file CV aktual Anda -->
+                            <a href="CV_Download/CV_Muhammad-Nabil.pdf" download="CV_Muhammad-Nabil.pdf" onclick="handleCVDownload(event)" class="px-6 py-3 rounded-full bg-neutral-900 dark:bg-white text-white dark:text-neutral-900 font-semibold text-sm hover:opacity-90 transition-all flex items-center gap-2 shadow-sm">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                                </svg>
+                                <span data-i18n="about_btn_cv">Unduh CV Resmi (PDF)</span>
+                            </a>
+                            <span class="text-xs text-neutral-400" data-i18n="about_cv_note">Format: PDF | Ukuran: ~2 MB</span>
+                        </div>
+                    </div>
+
+                    <!-- Visual Stack Column -->
+                    <div class="lg:col-span-5 bg-neutral-100 dark:bg-neutral-800/60 rounded-2xl p-6 sm:p-8 space-y-6">
+                        <h3 class="text-lg font-bold tracking-tight border-b border-neutral-200 dark:border-neutral-700 pb-3" data-i18n="about_stack_title">
+                            Software & Alat Kerja
+                        </h3>
+                        
+                        <!-- Editing Software Stack -->
+                        <div class="space-y-3">
+                            <p class="text-xs font-semibold text-neutral-500 uppercase tracking-wider" data-i18n="about_stack_software">Editing & Post-Production</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1.5 rounded-lg text-xs font-medium bg-white dark:bg-neutral-700 border border-neutral-200 dark:border-neutral-600">Adobe Premiere Pro</span>
+                                <span class="px-3 py-1.5 rounded-lg text-xs font-medium bg-white dark:bg-neutral-700 border border-neutral-200 dark:border-neutral-600">Adobe After Effects</span>
+                                <span class="px-3 py-1.5 rounded-lg text-xs font-medium bg-white dark:bg-neutral-700 border border-neutral-200 dark:border-neutral-600">DaVinci Resolve</span>
+                                <span class="px-3 py-1.5 rounded-lg text-xs font-medium bg-white dark:bg-neutral-700 border border-neutral-200 dark:border-neutral-600">CapCut Pro</span>
+                                <span class="px-3 py-1.5 rounded-lg text-xs font-medium bg-white dark:bg-neutral-700 border border-neutral-200 dark:border-neutral-600">Adobe After Effect</span>
+                            </div>
+                        </div>
+
+                        <!-- Hardware & Gear Stack -->
+                        <div class="space-y-3 pt-2">
+                            <p class="text-xs font-semibold text-neutral-500 uppercase tracking-wider" data-i18n="about_stack_hardware">Kamera & Hardware</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1.5 rounded-lg text-xs font-medium bg-white dark:bg-neutral-700 border border-neutral-200 dark:border-neutral-600">Canon EOS 700d</span>
+                                <span class="px-3 py-1.5 rounded-lg text-xs font-medium bg-white dark:bg-neutral-700 border border-neutral-200 dark:border-neutral-600">Iphone 16 Pro</span>
+                                <span class="px-3 py-1.5 rounded-lg text-xs font-medium bg-white dark:bg-neutral-700 border border-neutral-200 dark:border-neutral-600">DJI Mavic Mini 1</span>
+                                <span class="px-3 py-1.5 rounded-lg text-xs font-medium bg-white dark:bg-neutral-700 border border-neutral-200 dark:border-neutral-600">Macbook Air M1</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FEATURED PROJECTS SECTION -->
+        <section id="projects" class="py-24 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+            <!-- Section Header -->
+            <div class="text-center max-w-3xl mx-auto mb-12 space-y-4">
+                <p class="text-xs font-bold text-blue-500 uppercase tracking-widest" data-i18n="proj_tag">KARYA PILIHAN</p>
+                <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight" data-i18n="proj_title">Portofolio Video Showcase</h2>
+                <p class="text-base sm:text-lg text-neutral-600 dark:text-neutral-400" data-i18n="proj_desc">
+                    Tonton karya terbaik saya di bawah ini. Disusun dalam format sinematik 16:9 yang responsif dan siap diputar.
+                </p>
+
+                <!-- Category Filter Buttons -->
+                <div class="flex flex-wrap items-center justify-center gap-2 pt-4" id="projectFilters">
+                    <button onclick="filterProjects('all')" class="filter-btn active-filter px-4 py-2 rounded-full text-xs font-semibold bg-blue-600 text-white transition-all" data-category="all" data-i18n="filter_all">Semua Video</button>
+                    <button onclick="filterProjects('showreel')" class="filter-btn px-4 py-2 rounded-full text-xs font-semibold bg-neutral-200 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-neutral-300 transition-all" data-category="showreel" data-i18n="filter_showreel">Showreel</button>
+                    <button onclick="filterProjects('aftermovie')" class="filter-btn px-4 py-2 rounded-full text-xs font-semibold bg-neutral-200 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-neutral-300 transition-all" data-category="aftermovie" data-i18n="filter_aftermovie">Aftermovie & Event</button>
+                    <button onclick="filterProjects('trailer')" class="filter-btn px-4 py-2 rounded-full text-xs font-semibold bg-neutral-200 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-neutral-300 transition-all" data-category="trailer" data-i18n="filter_trailer">Trailer & Teaser</button>
+                </div>
+            </div>
+
+            <!-- Video Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8" id="videoGrid">
+                <!-- Video Item 1: Showreel Utama -->
+                <div class="project-card apple-card rounded-2xl overflow-hidden flex flex-col" data-category="showreel">
+                    <!-- Responsive 16:9 Youtube Embed Container -->
+                    <!-- Catatan: Ganti 'YOUR_YOUTUBE_VIDEO_ID_1' atau 'dQw4w9WgXcQ' dengan ID Video YouTube asli Anda -->
+                    <div class="relative w-full aspect-16-9 bg-black">
+                        <iframe class="w-full h-full rounded-t-2xl" src="https://www.youtube.com/embed/dQw4w9WgXcQ?enablejsapi=1" title="Videographer Official Showreel" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-xs font-bold text-blue-500 uppercase tracking-wider">SHOWREEL 2024</span>
+                                <span class="text-xs text-neutral-400 font-medium">02:15 Min</span>
+                            </div>
+                            <h3 class="text-xl font-bold tracking-tight">Official Videography & Editing Showreel</h3>
+                            <p class="text-sm text-neutral-600 dark:text-neutral-400 mt-2 line-clamp-2" data-i18n="proj_1_desc">
+                                Kompilasi momen visual terbaik yang menampilkan perpaduan cinematography, efek transisi After Effects, serta color grading tone hangat sinematik.
+                            </p>
+                        </div>
+                        <div class="flex items-center gap-2 pt-2 border-t border-neutral-200 dark:border-neutral-800/80 text-xs text-neutral-500">
+                            <span>Premiere Pro</span> • <span>DaVinci Resolve</span> • <span>Iphone 16 Pro</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video Item 2: Campus Expo Trailer -->
+                <div class="project-card apple-card rounded-2xl overflow-hidden flex flex-col" data-category="trailer">
+                    <!-- Catatan: Ganti 'YOUR_YOUTUBE_VIDEO_ID_2' dengan ID Video YouTube asli Anda -->
+                    <div class="relative w-full aspect-16-9 bg-black">
+                        <iframe class="w-full h-full rounded-t-2xl" src="https://www.youtube.com/embed/L_LUpnjgPso?enablejsapi=1" title="Campus Expo Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-xs font-bold text-indigo-500 uppercase tracking-wider">TRAILER & PROMO</span>
+                                <span class="text-xs text-neutral-400 font-medium">01:45 Min</span>
+                            </div>
+                            <h3 class="text-xl font-bold tracking-tight">Campus Expo Official Teaser & Trailer</h3>
+                            <p class="text-sm text-neutral-600 dark:text-neutral-400 mt-2 line-clamp-2" data-i18n="proj_2_desc">
+                                Video teaser pengungkit antusiasme calon mahasiswa. Mengkombinasikan musik beat dinamis dengan efek teks kinetik bergerak cepat.
+                            </p>
+                        </div>
+                        <div class="flex items-center gap-2 pt-2 border-t border-neutral-200 dark:border-neutral-800/80 text-xs text-neutral-500">
+                            <span>After Effects</span> • <span>Fast Pacing</span> • <span>Sound Design</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video Item 3: School Event Aftermovie -->
+                <div class="project-card apple-card rounded-2xl overflow-hidden flex flex-col" data-category="aftermovie">
+                    <!-- Catatan: Ganti 'YOUR_YOUTUBE_VIDEO_ID_3' dengan ID Video YouTube asli Anda -->
+                    <div class="relative w-full aspect-16-9 bg-black">
+                        <iframe class="w-full h-full rounded-t-2xl" src="https://www.youtube.com/embed/ScMzIvxBSi4?enablejsapi=1" title="High School Fest Aftermovie" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-xs font-bold text-emerald-500 uppercase tracking-wider">AFTERMOVIE</span>
+                                <span class="text-xs text-neutral-400 font-medium">03:30 Min</span>
+                            </div>
+                            <h3 class="text-xl font-bold tracking-tight">Pentas Seni & Youth Festival Recap</h3>
+                            <p class="text-sm text-neutral-600 dark:text-neutral-400 mt-2 line-clamp-2" data-i18n="proj_3_desc">
+                                Dokumentasi lengkap kemeriahan acara festival sekolah. Menangkap emosi penampilan panggung, keceriaan penonton, dan cuplikan backstage.
+                            </p>
+                        </div>
+                        <div class="flex items-center gap-2 pt-2 border-t border-neutral-200 dark:border-neutral-800/80 text-xs text-neutral-500">
+                            <span>Multi-Cam Editing</span> • <span>Color Correction</span> • <span>Live Audio Sync</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video Item 4: Commercial Product Edit -->
+                <div class="project-card apple-card rounded-2xl overflow-hidden flex flex-col" data-category="trailer">
+                    <!-- Catatan: Ganti 'YOUR_YOUTUBE_VIDEO_ID_4' dengan ID Video YouTube asli Anda -->
+                    <div class="relative w-full aspect-16-9 bg-black">
+                        <iframe class="w-full h-full rounded-t-2xl" src="https://www.youtube.com/embed/jNQXAC9IVRw?enablejsapi=1" title="Brand Commercial Promo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-xs font-bold text-amber-500 uppercase tracking-wider">COMMERCIAL EDIT</span>
+                                <span class="text-xs text-neutral-400 font-medium">00:59 Min</span>
+                            </div>
+                            <h3 class="text-xl font-bold tracking-tight">Cinematic Brand Showcase Reel</h3>
+                            <p class="text-sm text-neutral-600 dark:text-neutral-400 mt-2 line-clamp-2" data-i18n="proj_4_desc">
+                                Iklan komersial produk berdurasi pendek yang dirancang khusus untuk format media sosial dengan grading kontras tinggi dan transisi halus.
+                            </p>
+                        </div>
+                        <div class="flex items-center gap-2 pt-2 border-t border-neutral-200 dark:border-neutral-800/80 text-xs text-neutral-500">
+                            <span>Commercial Grade</span> • <span>Macro Lighting</span> • <span>CapCut / Premiere</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ORGANIZATIONAL EXPERIENCE SECTION -->
+        <section id="experience" class="py-24 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
+            <!-- Section Header -->
+            <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
+                <p class="text-xs font-bold text-blue-500 uppercase tracking-widest" data-i18n="exp_tag">REKAM JEJAK</p>
+                <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight" data-i18n="exp_title">Pengalaman Organisasi</h2>
+                <p class="text-base text-neutral-600 dark:text-neutral-400" data-i18n="exp_desc">
+                    Pengalaman memimpin dan berkontribusi langsung dalam divisi dokumentasi serta media di lingkungan sekolah dan acara besar.
+                </p>
+            </div>
+
+            <!-- Apple-style Timeline -->
+            <div class="space-y-8 relative before:absolute before:inset-0 before:left-4 sm:before:left-1/2 before:-translate-x-px before:h-full before:w-0.5 before:bg-neutral-200 dark:before:bg-neutral-800">
+                
+                <!-- Experience Item 1: Ketua Sub-Divisi Trailer & Aftermovie -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+                    <div class="flex items-center justify-center w-9 h-9 rounded-full border-4 border-white dark:border-black bg-blue-600 text-white shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 shadow-sm z-10">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                        </svg>
+                    </div>
+                    <div class="w-[calc(100%-3rem)] md:w-[calc(50%-2.5rem)] apple-card p-6 sm:p-8 rounded-2xl">
+                        <div class="flex items-center justify-between gap-2 mb-2">
+                            <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-blue-500/10 text-blue-600 dark:text-blue-400">SMA Campus Expo</span>
+                            <span class="text-xs font-medium text-neutral-400">2025</span>
+                        </div>
+                        <h3 class="text-xl font-bold tracking-tight" data-i18n="exp_1_role">Ketua Sub-Divisi Trailer & Aftermovie</h3>
+                        <p class="text-sm font-medium text-neutral-500 dark:text-neutral-400 mt-1" data-i18n="exp_1_org">Campus Expo Official Media Team</p>
+                        <ul class="mt-4 space-y-2 text-sm text-neutral-600 dark:text-neutral-300 list-disc list-inside">
+                            <li data-i18n="exp_1_bullet1">Memimpin tim video beranggotakan 6 orang dalam pembuatan teaser promosi dan aftermovie resmi.</li>
+                            <li data-i18n="exp_1_bullet2">Mengatur alur konsep storyboard, *shooting schedule*, hingga tahapan penyuntingan akhir.</li>
+                            <li data-i18n="exp_1_bullet3">Trailer resmi berhasil mengumpulkan lebih dari 10.000+ total penayangan di media sosial.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Experience Item 2: Panitia PDD -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+                    <div class="flex items-center justify-center w-9 h-9 rounded-full border-4 border-white dark:border-black bg-indigo-600 text-white shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 shadow-sm z-10">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h0.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/>
+                        </svg>
+                    </div>
+                    <div class="w-[calc(100%-3rem)] md:w-[calc(50%-2.5rem)] apple-card p-6 sm:p-8 rounded-2xl">
+                        <div class="flex items-center justify-between gap-2 mb-2">
+                            <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-indigo-500/10 text-indigo-600 dark:text-indigo-400">Panitia Sekolah</span>
+                            <span class="text-xs font-medium text-neutral-400">2022 - 2023</span>
+                        </div>
+                        <h3 class="text-xl font-bold tracking-tight" data-i18n="exp_2_role">Panitia PDD (Publikasi, Dekorasi, & Dokumentasi)</h3>
+                        <p class="text-sm font-medium text-neutral-500 dark:text-neutral-400 mt-1" data-i18n="exp_2_org">Berbagai Event Sekolah (Pentas Seni & Classmeeting)</p>
+                        <ul class="mt-4 space-y-2 text-sm text-neutral-600 dark:text-neutral-300 list-disc list-inside">
+                            <li data-i18n="exp_2_bullet1">Bertanggung jawab sebagai Videographer Lapangan selama acara berlangsung secara live.</li>
+                            <li data-i18n="exp_2_bullet2">Menghasilkan konten *Same Day Edit (SDE)* harian untuk diunggah pada Instagram Reels & YouTube Shorts.</li>
+                            <li data-i18n="exp_2_bullet3">Mengelola arsip footage video mentah agar terstruktur dengan rapi untuk dokumentasi sekolah.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Experience Item 3: OSIS Sekbid 9 -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+                    <div class="flex items-center justify-center w-9 h-9 rounded-full border-4 border-white dark:border-black bg-emerald-600 text-white shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 shadow-sm z-10">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                        </svg>
+                    </div>
+                    <div class="w-[calc(100%-3rem)] md:w-[calc(50%-2.5rem)] apple-card p-6 sm:p-8 rounded-2xl">
+                        <div class="flex items-center justify-between gap-2 mb-2">
+                            <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-600 dark:text-emerald-400">Pengurus OSIS</span>
+                            <span class="text-xs font-medium text-neutral-400">2022 - 2023</span>
+                        </div>
+                        <h3 class="text-xl font-bold tracking-tight" data-i18n="exp_3_role">Anggota Sekbid 9 (TIK / Media & Informasi)</h3>
+                        <p class="text-sm font-medium text-neutral-500 dark:text-neutral-400 mt-1" data-i18n="exp_3_org">OSIS SMA Negeri 5 Bogor</p>
+                        <ul class="mt-4 space-y-2 text-sm text-neutral-600 dark:text-neutral-300 list-disc list-inside">
+                            <li data-i18n="exp_3_bullet1">Merancang dan menyunting pengumuman video digital internal sekolah.</li>
+                            <li data-i18n="exp_3_bullet2">Melakukan liputan berkala kegiatan ekstra kurikuler dan prestasi siswa.</li>
+                            <li data-i18n="exp_3_bullet3">Membantu tata kelola visual pada akun media sosial resmi OSIS.</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section id="contact" class="py-24 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
+            <div class="apple-card rounded-3xl p-8 sm:p-12 md:p-16 border border-neutral-200 dark:border-neutral-800">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                    
+                    <!-- Contact Intro Info -->
+                    <div class="lg:col-span-5 space-y-6">
+                        <p class="text-xs font-bold text-blue-500 uppercase tracking-widest" data-i18n="contact_tag">HUBUNGI SAYA</p>
+                        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight" data-i18n="contact_title">
+                            Mari Buat Karya Sinematik Bersama.
+                        </h2>
+                        <p class="text-neutral-600 dark:text-neutral-400 text-sm leading-relaxed" data-i18n="contact_subtitle">
+                            Punya ide proyek video, acara yang butuh dokumentasi profesional, atau posisi editor video freelance? Kirimkan pesan Anda melalui formulir atau kontak langsung di bawah.
+                        </p>
+
+                        <!-- Direct Contact List -->
+                        <div class="space-y-4 pt-4">
+                            <div class="flex items-center space-x-3 text-sm">
+                                <div class="p-2.5 rounded-full bg-blue-500/10 text-blue-500">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p class="text-xs font-semibold text-neutral-400">Email Direct</p>
+                                    <a href="mailto:alexavisuals@example.com" class="font-medium hover:underline text-neutral-800 dark:text-neutral-200">mnabil.creative@gmail.com</a>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center space-x-3 text-sm">
+                                <div class="p-2.5 rounded-full bg-emerald-500/10 text-emerald-500">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p class="text-xs font-semibold text-neutral-400">Lokasi / Base</p>
+                                    <p class="font-medium text-neutral-800 dark:text-neutral-200" data-i18n="contact_location">Bogor / Indonesia (Available Worldwide Remote)</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Social Media Links -->
+                        <div class="pt-6 border-t border-neutral-200 dark:border-neutral-800">
+                            <p class="text-xs font-semibold text-neutral-400 uppercase tracking-wider mb-3" data-i18n="contact_social">Media Sosial</p>
+                            <div class="flex items-center space-x-3">
+                                <!-- Instagram -->
+                                <a href="https://instagram.com/@mnabil_adzikri" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="p-3 rounded-full bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-blue-600 hover:text-white transition-all">
+                                    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                                    </svg>
+                                </a>
+                                <!-- YouTube -->
+                                <a href="https://youtube.com/@mnabil_adzikri" target="_blank" rel="noopener noreferrer" aria-label="YouTube" class="p-3 rounded-full bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-red-600 hover:text-white transition-all">
+                                    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                                        <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                                    </svg>
+                                </a>
+                                <!-- LinkedIn -->
+                                <a href="www.linkedin.com/in/muhammadnabil-adzikr" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="p-3 rounded-full bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-blue-700 hover:text-white transition-all">
+                                    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contact Form Column -->
+                    <div class="lg:col-span-7">
+                        <!-- FormSubmit Form Integration -->
+                        <!-- Catatan: Ganti 'your-email@example.com' dengan Email asli Anda tempat menerima pesan -->
+                        <form id="contactForm" action="https://formsubmit.co/mnabil.creative@gmail.com" method="POST" onsubmit="handleFormSubmit(event)" class="space-y-4">
+                            
+                            <!-- FormSubmit Config Fields -->
+                            <input type="hidden" name="_subject" value="Pesan Baru dari Website Portofolio Videographer">
+                            <input type="hidden" name="_captcha" value="false">
+                            <input type="hidden" name="_template" value="table">
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <!-- Name Input -->
+                                <div>
+                                    <label for="name" class="block text-xs font-semibold mb-1 text-neutral-600 dark:text-neutral-400" data-i18n="form_name">Nama Lengkap</label>
+                                    <input type="text" id="name" name="name" required placeholder="Samuel Hill" class="w-full px-4 py-3 rounded-xl bg-neutral-100 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all">
+                                </div>
+                                <!-- Email Input -->
+                                <div>
+                                    <label for="email" class="block text-xs font-semibold mb-1 text-neutral-600 dark:text-neutral-400" data-i18n="form_email">Alamat Email</label>
+                                    <input type="email" id="email" name="email" required placeholder="samHill@example.com" class="w-full px-4 py-3 rounded-xl bg-neutral-100 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all">
+                                </div>
+                            </div>
+
+                            <!-- Subject Input -->
+                            <div>
+                                <label for="subject" class="block text-xs font-semibold mb-1 text-neutral-600 dark:text-neutral-400" data-i18n="form_subject">Subjek / Jenis Proyek</label>
+                                <input type="text" id="subject" name="subject" required placeholder="Contoh: Video Event Aftermovie / Project Video Editor" class="w-full px-4 py-3 rounded-xl bg-neutral-100 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all">
+                            </div>
+
+                            <!-- Message Input -->
+                            <div>
+                                <label for="message" class="block text-xs font-semibold mb-1 text-neutral-600 dark:text-neutral-400" data-i18n="form_message">Pesan Anda</label>
+                                <textarea id="message" name="message" rows="5" required placeholder="Tuliskan detail proyek, tanggal acara, atau konsep video yang Anda butuhkan..." class="w-full px-4 py-3 rounded-xl bg-neutral-100 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all resize-none"></textarea>
+                            </div>
+
+                            <!-- Form Feedback Alert -->
+                            <div id="formStatus" class="hidden p-4 rounded-xl text-xs font-semibold"></div>
+
+                            <!-- Submit Button -->
+                            <button type="submit" id="submitBtn" class="w-full py-3.5 rounded-xl apple-btn-primary font-semibold text-sm shadow-md shadow-blue-500/20 flex items-center justify-center gap-2">
+                                <span id="submitBtnText" data-i18n="form_send">Kirim Pesan Sekarang</span>
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
+                                </svg>
+                            </button>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-neutral-200 dark:border-neutral-800 py-10 px-4 text-center text-xs text-neutral-500">
+        <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p>© 2026 Muhammad Nabil. Designed with Apple aesthetic minimalism.</p>
+            <div class="flex items-center space-x-6">
+                <a href="#hero" class="hover:text-blue-500 transition-colors" data-i18n="nav_home">Kembali ke Atas ↑</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // Dynamic Translation Dictionaries (Bahasa Indonesia & English)
+        const translations = {
+            id: {
+                nav_home: "Beranda",
+                nav_about: "Tentang",
+                nav_projects: "Portofolio Video",
+                nav_exp: "Pengalaman",
+                nav_contact: "Kontak",
+                nav_cv: "Unduh CV",
+                hero_badge: "Terbuka Untuk Freelance & Proyek Kreatif",
+                hero_title: "Visual Sinematik. <br><span class='bg-gradient-to-r from-blue-600 via-indigo-500 to-sky-400 bg-clip-text text-transparent'>Cerita Berdampak Tinggi.</span>",
+                hero_subtitle: "Videographer & Video Editor independen. Mengubah momen menjadi narasi bergerak yang elegan, ritmis, dan memikat mata lewat teknik penyuntingan modern serta perataan warna presisi.",
+                hero_btn_projects: "Eksplor Portofolio",
+                hero_btn_cv: "Unduh CV (PDF)",
+                hero_btn_contact: "Diskusi Proyek",
+                stat_projects: "Proyek Video Selesai",
+                stat_quality: "Kualitas Sinematik",
+                stat_dedication: "Komitmen Dedikasi",
+                about_tag: "TENTANG SAYA",
+                about_title: "Fokus pada Detail, Ritme Editing, dan Penceritaan Visual.",
+                about_p1: "Halo! Saya seorang Videographer & Video Editor yang terbiasa mengolah gagasan mentah menjadi sajian audio-visual berkelas. Pengalaman saya mencakup pembuatan trailer promosi, video recap acara (aftermovie), hingga konten komersial berdurasi pendek.",
+                about_p2: "Berbekal pemahaman mendalam tentang pacing editing, sound design sinematik, serta teknik perataan warna (color grading), saya berfokus pada hasil akhir yang tidak hanya indah secara estetika tetapi juga efektif menyampaikan pesan utama kepada audiens.",
+                about_btn_cv: "Unduh CV Resmi (PDF)",
+                about_cv_note: "Format: PDF | Ukuran: ~2 MB",
+                about_stack_title: "Software & Alat Kerja",
+                about_stack_software: "Editing & Post-Production",
+                about_stack_hardware: "Kamera & Hardware",
+                proj_tag: "KARYA PILIHAN",
+                proj_title: "Portofolio Video Showcase",
+                proj_desc: "Tonton karya terbaik saya di bawah ini. Disusun dalam format sinematik 16:9 yang responsif dan siap diputar.",
+                filter_all: "Semua Video",
+                filter_showreel: "Showreel",
+                filter_aftermovie: "Aftermovie & Event",
+                filter_trailer: "Trailer & Teaser",
+                proj_1_desc: "Kompilasi momen visual terbaik yang menampilkan perpaduan cinematography, efek transisi After Effects, serta color grading tone hangat sinematik.",
+                proj_2_desc: "Video teaser pengungkit antusiasme calon mahasiswa. Mengkombinasikan musik beat dinamis dengan efek teks kinetik bergerak cepat.",
+                proj_3_desc: "Dokumentasi lengkap kemeriahan acara festival sekolah. Menangkap emosi penampilan panggung, keceriaan penonton, dan cuplikan backstage.",
+                proj_4_desc: "Iklan komersial produk berdurasi pendek yang dirancang khusus untuk format media sosial dengan grading kontras tinggi dan transisi halus.",
+                exp_tag: "REKAM JEJAK",
+                exp_title: "Pengalaman Organisasi",
+                exp_desc: "Pengalaman memimpin dan berkontribusi langsung dalam divisi dokumentasi serta media di lingkungan sekolah dan acara besar.",
+                exp_1_role: "Ketua Sub-Divisi Trailer & Aftermovie",
+                exp_1_org: "Campus Expo Official Media Team",
+                exp_1_bullet1: "Memimpin tim video beranggotakan 6 orang dalam pembuatan teaser promosi dan aftermovie resmi.",
+                exp_1_bullet2: "Mengatur alur konsep storyboard, shooting schedule, hingga tahapan penyuntingan akhir.",
+                exp_1_bullet3: "Trailer resmi berhasil mengumpulkan lebih dari 10.000+ total penayangan di media sosial.",
+                exp_2_role: "Panitia PDD (Publikasi, Dekorasi, & Dokumentasi)",
+                exp_2_org: "Berbagai Event Sekolah (Pentas Seni & Classmeeting)",
+                exp_2_bullet1: "Bertanggung jawab sebagai Videographer Lapangan selama acara berlangsung secara live.",
+                exp_2_bullet2: "Menghasilkan konten Same Day Edit (SDE) harian untuk diunggah pada Instagram Reels & YouTube Shorts.",
+                exp_2_bullet3: "Mengelola arsip footage video mentah agar terstruktur dengan rapi untuk dokumentasi sekolah.",
+                exp_3_role: "Anggota Sekbid 9 (TIK / Media & Informasi)",
+                exp_3_org: "OSIS SMA Negeri",
+                exp_3_bullet1: "Merancang dan menyunting pengumuman video digital internal sekolah.",
+                exp_3_bullet2: "Melakukan liputan berkala kegiatan ekstra kurikuler dan prestasi siswa.",
+                exp_3_bullet3: "Membantu tata kelola visual pada akun media sosial resmi OSIS.",
+                contact_tag: "HUBUNGI SAYA",
+                contact_title: "Mari Buat Karya Sinematik Bersama.",
+                contact_subtitle: "Punya ide proyek video, acara yang butuh dokumentasi profesional, atau posisi editor video freelance? Kirimkan pesan Anda melalui formulir atau kontak langsung di bawah.",
+                contact_location: "Jakarta / Indonesia (Available Worldwide Remote)",
+                contact_social: "Media Sosial",
+                form_name: "Nama Lengkap",
+                form_email: "Alamat Email",
+                form_subject: "Subjek / Jenis Proyek",
+                form_message: "Pesan Anda",
+                form_send: "Kirim Pesan Sekarang"
+            },
+            en: {
+                nav_home: "Home",
+                nav_about: "About",
+                nav_projects: "Video Portfolio",
+                nav_exp: "Experience",
+                nav_contact: "Contact",
+                nav_cv: "Download CV",
+                hero_badge: "Open for Freelance & Creative Projects",
+                hero_title: "Cinematic Visuals. <br><span class='bg-gradient-to-r from-blue-600 via-indigo-500 to-sky-400 bg-clip-text text-transparent'>High-Impact Stories.</span>",
+                hero_subtitle: "Independent Videographer & Video Editor. Transforming raw moments into rhythmically captivating moving pictures through modern editing techniques and precise color grading.",
+                hero_btn_projects: "Explore Work",
+                hero_btn_cv: "Download CV (PDF)",
+                hero_btn_contact: "Let's Talk",
+                stat_projects: "Completed Video Projects",
+                stat_quality: "Cinematic Quality",
+                stat_dedication: "Full Commitment",
+                about_tag: "ABOUT ME",
+                about_title: "Focused on Detail, Editing Pacing, and Visual Storytelling.",
+                about_p1: "Hello! I am a passionate Videographer & Video Editor experienced in turning raw ideas into high-quality audio-visual content. My work spans promotional trailers, event aftermovies, and short-form commercial edits.",
+                about_p2: "Armed with a deep understanding of editing rhythm, cinematic sound design, and color grading techniques, I ensure every frame delivers a lasting impression to your target audience.",
+                about_btn_cv: "Download Official CV (PDF)",
+                about_cv_note: "Format: PDF | Size: ~2 MB",
+                about_stack_title: "Software & Hardware Stack",
+                about_stack_software: "Editing & Post-Production",
+                about_stack_hardware: "Camera Gear & Hardware",
+                proj_tag: "FEATURED WORK",
+                proj_title: "Video Portfolio Showcase",
+                proj_desc: "Watch my best work below. Presented in responsive 16:9 cinematic embeds ready for instant playback.",
+                filter_all: "All Videos",
+                filter_showreel: "Showreel",
+                filter_aftermovie: "Aftermovie & Events",
+                filter_trailer: "Trailers & Teasers",
+                proj_1_desc: "A compilation of visual highlights showcasing cinematography, After Effects motion, and warm cinematic color tones.",
+                proj_2_desc: "High-energy teaser video crafted to drive engagement. Combines dynamic beat-matching with kinetic typography.",
+                proj_3_desc: "Full event documentation capturing stage performances, crowd reactions, and backstage emotion.",
+                proj_4_desc: "Short-form commercial promotional reel engineered for social media with high contrast grading and slick transitions.",
+                exp_tag: "BACKGROUND",
+                exp_title: "Organizational Experience",
+                exp_desc: "Leadership and hands-on media production experience across school organizations and major events.",
+                exp_1_role: "Head of Trailer & Aftermovie Sub-Division",
+                exp_1_org: "Campus Expo Official Media Team",
+                exp_1_bullet1: "Led a 6-member video team in producing promotional teasers and official event aftermovies.",
+                exp_1_bullet2: "Managed storyboard concepts, shooting schedules, and final post-production workflows.",
+                exp_1_bullet3: "The official trailer generated over 10,000+ views across social media platforms.",
+                exp_2_role: "PDD Committee Member (Publication & Documentation)",
+                exp_2_org: "School Event Committee (Art Fest & Classmeeting)",
+                exp_2_bullet1: "Served as on-ground Videographer during live multi-day events.",
+                exp_2_bullet2: "Produced daily Same Day Edit (SDE) videos for Instagram Reels & YouTube Shorts.",
+                exp_2_bullet3: "Organized raw video footage archives for official school documentation.",
+                exp_3_role: "Student Council Member (IT & Media Division)",
+                exp_3_org: "High School Student Council",
+                exp_3_bullet1: "Designed and edited internal digital video announcements.",
+                exp_3_bullet2: "Covered extracurricular activities and student achievements regularly.",
+                exp_3_bullet3: "Maintained visual brand consistency across official social channels.",
+                contact_tag: "GET IN TOUCH",
+                contact_title: "Let's Create Cinematic Content Together.",
+                contact_subtitle: "Have a video project idea, an event requiring professional documentation, or need a freelance video editor? Send a message via the form or connect directly below.",
+                contact_location: "Jakarta / Indonesia (Available Worldwide Remote)",
+                contact_social: "Social Networks",
+                form_name: "Full Name",
+                form_email: "Email Address",
+                form_subject: "Subject / Project Type",
+                form_message: "Your Message",
+                form_send: "Send Message Now"
+            }
+        };
+
+        let currentLang = 'id'; // Default Language
+
+        // Initialize Dark Mode on Load
+        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+
+        // Dark / Light Mode Switcher
+        function toggleDarkMode() {
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+
+        // Dual Language Switcher Function
+        function toggleLanguage() {
+            currentLang = currentLang === 'id' ? 'en' : 'id';
+            
+            // Update Label
+            document.getElementById('langLabel').textContent = currentLang === 'id' ? 'ID | EN' : 'EN | ID';
+            
+            // Translate all elements with data-i18n attribute
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if (translations[currentLang] && translations[currentLang][key]) {
+                    element.innerHTML = translations[currentLang][key];
+                }
+            });
+        }
+
+        // Mobile Menu Drawer Toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Filter Projects by Category
+        function filterProjects(category) {
+            // Update Active Button Styling
+            const buttons = document.querySelectorAll('#projectFilters .filter-btn');
+            buttons.forEach(btn => {
+                if (btn.getAttribute('data-category') === category) {
+                    btn.classList.add('bg-blue-600', 'text-white');
+                    btn.classList.remove('bg-neutral-200', 'dark:bg-neutral-800', 'text-neutral-700', 'dark:text-neutral-300');
+                } else {
+                    btn.classList.remove('bg-blue-600', 'text-white');
+                    btn.classList.add('bg-neutral-200', 'dark:bg-neutral-800', 'text-neutral-700', 'dark:text-neutral-300');
+                }
+            });
+
+            // Filter Video Cards
+            const cards = document.querySelectorAll('#videoGrid .project-card');
+            cards.forEach(card => {
+                if (category === 'all' || card.getAttribute('data-category') === category) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // CV Download Handler Alert Fallback
+        function handleCVDownload(e) {
+            // Checks if actual file exists; shows friendly feedback if running as demo
+            const cvPath = e.currentTarget.getAttribute('href');
+            if (cvPath.includes('YourName')) {
+                alert(currentLang === 'id' 
+                    ? "Sistem Demo Portofolio: Silakan ganti file 'assets/CV_Videographer_YourName.pdf' dengan file PDF CV Anda sendiri di dalam proyek." 
+                    : "Portfolio Demo System: Please replace 'assets/CV_Videographer_YourName.pdf' with your actual PDF CV file.");
+            }
+        }
+
+        // FormSubmit Submission Handler
+        function handleFormSubmit(e) {
+            const statusDiv = document.getElementById('formStatus');
+            const submitBtnText = document.getElementById('submitBtnText');
+            
+            statusDiv.classList.remove('hidden', 'bg-red-500/10', 'text-red-500', 'bg-emerald-500/10', 'text-emerald-500');
+            statusDiv.classList.add('bg-blue-500/10', 'text-blue-500');
+            statusDiv.textContent = currentLang === 'id' ? 'Mengirim pesan Anda...' : 'Sending message...';
+            submitBtnText.textContent = currentLang === 'id' ? 'Proses...' : 'Processing...';
+
+            // Check if user updated the formsubmit placeholder email
+            const form = e.target;
+            if (form.action.includes('your-email@example.com')) {
+                e.preventDefault();
+                setTimeout(() => {
+                    statusDiv.classList.remove('bg-blue-500/10', 'text-blue-500');
+                    statusDiv.classList.add('bg-emerald-500/10', 'text-emerald-500');
+                    statusDiv.textContent = currentLang === 'id' 
+                        ? ' [Mode Demo] Pesan berhasil disimulasikan! Jangan lupa mengganti email FormSubmit (your-email@example.com) di file HTML dengan email Anda.'
+                        : ' [Demo Mode] Message simulated successfully! Remember to change FormSubmit email placeholder in HTML to your email.';
+                    form.reset();
+                    submitBtnText.textContent = currentLang === 'id' ? 'Kirim Pesan Sekarang' : 'Send Message Now';
+                }, 1000);
+            }
+        }
+    </script>
+</body>
+</html>
