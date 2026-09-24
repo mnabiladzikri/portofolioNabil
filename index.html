@@ -130,6 +130,7 @@
             from { opacity: 0; transform: translateY(15px); }
             to { opacity: 1; transform: translateY(0); }
         }
+        
     </style>
 </head>
 
@@ -244,7 +245,7 @@
                         </svg>
                         <span data-i18n="hero_btn_projects">Eksplor Portofolio</span>
                     </a>
-                    <a href="assets/CV_Videographer_YourName.pdf" download="CV_Videographer_YourName.pdf" onclick="handleCVDownload(event)" class="w-full sm:w-auto px-7 py-3.5 rounded-full font-semibold text-sm bg-neutral-900 dark:bg-white text-white dark:text-neutral-900 hover:opacity-90 transition-all flex items-center justify-center gap-2 shadow-sm">
+                    <a href="CV_Download/CV_Muhammad-Nabil.pdf" download="CV_Muhammad-Nabil.pdf" onclick="handleCVDownload(event)" class="w-full sm:w-auto px-7 py-3.5 rounded-full font-semibold text-sm bg-neutral-900 dark:bg-white text-white dark:text-neutral-900 hover:opacity-90 transition-all flex items-center justify-center gap-2 shadow-sm">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
                         </svg>
@@ -277,30 +278,43 @@
         </section>
 
         <!-- ABOUT ME SECTION -->
-        <section id="about" class="py-24 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
-            <div class="apple-card rounded-3xl p-8 sm:p-12 md:p-16 relative overflow-hidden">
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <section id="about" class="py-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+            <div class="apple-card rounded-3xl p-6 sm:p-10 md:p-12 relative overflow-hidden">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
                     <!-- Text Info Column -->
-                    <div class="lg:col-span-7 space-y-6">
-                        <div class="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-blue-500/10 text-blue-600 dark:text-blue-400" data-i18n="about_tag">
-                            TENTANG SAYA
+                    <div class="lg:col-span-7 flex flex-col space-y-6 min-w-0">
+                        <!-- Profile Header with Photo & Badge -->
+                        <div class="flex items-center gap-4 sm:gap-6">
+                            <div class="relative group shrink-0">
+                                <img id="profilePhoto" 
+                                     src="assets/profilePicture/profileNabil.png" 
+                                     onerror="this.onerror=null; this.src='https://placehold.co/400x400/2997ff/ffffff?text=Profile';" 
+                                     alt="Foto Profil Videographer" 
+                                     class="w-24 h-24 sm:w-32 sm:h-32 rounded-2xl object-cover border-2 border-white dark:border-neutral-700 shadow-md transition-transform duration-300 group-hover:scale-105">
+                            </div>
+                            <div class="space-y-1.5">
+                                <div class="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-blue-500/10 text-blue-600 dark:text-blue-400" data-i18n="about_tag">
+                                    TENTANG SAYA
+                                </div>
+                                <h3 class="text-xl sm:text-2xl font-bold tracking-tight text-neutral-900 dark:text-white" data-i18n="about_name">MUHAMMAD NABIL ADZ-DZIKRI</h3>
+                                <p class="text-xs sm:text-sm text-neutral-500 dark:text-neutral-400 font-semibold tracking-wide uppercase">Videographer & Video Editor</p>
+                            </div>
                         </div>
-                        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight" data-i18n="about_title">
-                            Fokus pada Detail, Ritme Editing, dan Penceritaan Visual.
+
+                        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight leading-tight break-words text-neutral-900 dark:text-white" data-i18n="about_title">
+                            Fokus pada Detail, Ritme Editing,<br class="hidden sm:inline"> dan Penceritaan Visual.
                         </h2>
-                        <div class="space-y-4 text-neutral-600 dark:text-neutral-300 text-base leading-relaxed">
+                        <div class="space-y-4 text-neutral-600 dark:text-neutral-300 text-sm sm:text-base leading-relaxed">
                             <p data-i18n="about_p1">
                                 Halo! Saya seorang Videographer & Video Editor yang terbiasa mengolah gagasan mentah menjadi sajian audio-visual berkelas. Pengalaman saya mencakup pembuatan trailer promosi, video recap acara (aftermovie), hingga konten komersial berdurasi pendek.
                             </p>
                             <p data-i18n="about_p2">
-                                Berbekal pemahaman mendalam tentang pacing editing, sound design sinematik, serta teknik perataan warna (color grading), saya berfokus pada hasil akhir yang tidak hanya indah secara estetika tetapi juga efektif menyampaikan pesan utama kepada audiens.
+                                Berbekal pemahaman mendalam tentang *pacing* editing, *sound design* sinematik, serta teknik perataan warna (*color grading*), saya berfokus pada hasil akhir yang tidak hanya indah secara estetika tetapi juga efektif menyampaikan pesan utama kepada audiens.
                             </p>
                         </div>
 
                         <!-- Action Buttons: Download CV -->
-                        <div class="pt-4 flex flex-wrap items-center gap-4">
-                            <!-- Download CV Button -->
-                            <!-- Catatan: Ganti 'assets/CV_Videographer_YourName.pdf' dengan path file CV aktual Anda -->
+                        <div class="pt-2 flex flex-wrap items-center gap-4">
                             <a href="CV_Download/CV_Muhammad-Nabil.pdf" download="CV_Muhammad-Nabil.pdf" onclick="handleCVDownload(event)" class="px-6 py-3 rounded-full bg-neutral-900 dark:bg-white text-white dark:text-neutral-900 font-semibold text-sm hover:opacity-90 transition-all flex items-center gap-2 shadow-sm">
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
@@ -312,31 +326,32 @@
                     </div>
 
                     <!-- Visual Stack Column -->
-                    <div class="lg:col-span-5 bg-neutral-100 dark:bg-neutral-800/60 rounded-2xl p-6 sm:p-8 space-y-6">
-                        <h3 class="text-lg font-bold tracking-tight border-b border-neutral-200 dark:border-neutral-700 pb-3" data-i18n="about_stack_title">
+                    <div class="lg:col-span-5 bg-neutral-100 dark:bg-neutral-800/60 rounded-2xl p-6 sm:p-7 flex flex-col gap-6 min-w-0 border border-neutral-200/60 dark:border-neutral-700/50">
+                        <h3 class="text-lg font-bold tracking-tight border-b border-neutral-200 dark:border-neutral-700 pb-3 text-neutral-900 dark:text-white" data-i18n="about_stack_title">
                             Software & Alat Kerja
                         </h3>
                         
                         <!-- Editing Software Stack -->
-                        <div class="space-y-3">
-                            <p class="text-xs font-semibold text-neutral-500 uppercase tracking-wider" data-i18n="about_stack_software">Editing & Post-Production</p>
+                        <div class="flex flex-col gap-2.5">
+                            <p class="text-xs font-semibold text-neutral-500 dark:text-neutral-400 uppercase tracking-wider" data-i18n="about_stack_software">Editing & Post-Production</p>
                             <div class="flex flex-wrap gap-2">
-                                <span class="px-3 py-1.5 rounded-lg text-xs font-medium bg-white dark:bg-neutral-700 border border-neutral-200 dark:border-neutral-600">Adobe Premiere Pro</span>
-                                <span class="px-3 py-1.5 rounded-lg text-xs font-medium bg-white dark:bg-neutral-700 border border-neutral-200 dark:border-neutral-600">Adobe After Effects</span>
-                                <span class="px-3 py-1.5 rounded-lg text-xs font-medium bg-white dark:bg-neutral-700 border border-neutral-200 dark:border-neutral-600">DaVinci Resolve</span>
-                                <span class="px-3 py-1.5 rounded-lg text-xs font-medium bg-white dark:bg-neutral-700 border border-neutral-200 dark:border-neutral-600">CapCut Pro</span>
-                                <span class="px-3 py-1.5 rounded-lg text-xs font-medium bg-white dark:bg-neutral-700 border border-neutral-200 dark:border-neutral-600">Adobe After Effect</span>
+                                <span class="px-3 py-1.5 rounded-lg text-xs font-medium bg-white dark:bg-neutral-700/80 text-neutral-800 dark:text-neutral-200 border border-neutral-200 dark:border-neutral-600 shadow-sm">Adobe Premiere Pro</span>
+                                <span class="px-3 py-1.5 rounded-lg text-xs font-medium bg-white dark:bg-neutral-700/80 text-neutral-800 dark:text-neutral-200 border border-neutral-200 dark:border-neutral-600 shadow-sm">Adobe After Effects</span>
+                                <span class="px-3 py-1.5 rounded-lg text-xs font-medium bg-white dark:bg-neutral-700/80 text-neutral-800 dark:text-neutral-200 border border-neutral-200 dark:border-neutral-600 shadow-sm">DaVinci Resolve</span>
+                                <span class="px-3 py-1.5 rounded-lg text-xs font-medium bg-white dark:bg-neutral-700/80 text-neutral-800 dark:text-neutral-200 border border-neutral-200 dark:border-neutral-600 shadow-sm">LOG Footage Processing</span>
+                                <span class="px-3 py-1.5 rounded-lg text-xs font-medium bg-white dark:bg-neutral-700/80 text-neutral-800 dark:text-neutral-200 border border-neutral-200 dark:border-neutral-600 shadow-sm">CapCut</span>
+                                <span class="px-3 py-1.5 rounded-lg text-xs font-medium bg-white dark:bg-neutral-700/80 text-neutral-800 dark:text-neutral-200 border border-neutral-200 dark:border-neutral-600 shadow-sm">Canva</span>
                             </div>
                         </div>
 
                         <!-- Hardware & Gear Stack -->
-                        <div class="space-y-3 pt-2">
-                            <p class="text-xs font-semibold text-neutral-500 uppercase tracking-wider" data-i18n="about_stack_hardware">Kamera & Hardware</p>
+                        <div class="flex flex-col gap-2.5 pt-1">
+                            <p class="text-xs font-semibold text-neutral-500 dark:text-neutral-400 uppercase tracking-wider" data-i18n="about_stack_hardware">Kamera & Hardware</p>
                             <div class="flex flex-wrap gap-2">
-                                <span class="px-3 py-1.5 rounded-lg text-xs font-medium bg-white dark:bg-neutral-700 border border-neutral-200 dark:border-neutral-600">Canon EOS 700d</span>
-                                <span class="px-3 py-1.5 rounded-lg text-xs font-medium bg-white dark:bg-neutral-700 border border-neutral-200 dark:border-neutral-600">Iphone 16 Pro</span>
-                                <span class="px-3 py-1.5 rounded-lg text-xs font-medium bg-white dark:bg-neutral-700 border border-neutral-200 dark:border-neutral-600">DJI Mavic Mini 1</span>
-                                <span class="px-3 py-1.5 rounded-lg text-xs font-medium bg-white dark:bg-neutral-700 border border-neutral-200 dark:border-neutral-600">Macbook Air M1</span>
+                                <span class="px-3 py-1.5 rounded-lg text-xs font-medium bg-white dark:bg-neutral-700/80 text-neutral-800 dark:text-neutral-200 border border-neutral-200 dark:border-neutral-600 shadow-sm">Canon EOS 700D | 18-200mm</span>
+                                <span class="px-3 py-1.5 rounded-lg text-xs font-medium bg-white dark:bg-neutral-700/80 text-neutral-800 dark:text-neutral-200 border border-neutral-200 dark:border-neutral-600 shadow-sm">Iphone 16 Pro</span>
+                                <span class="px-3 py-1.5 rounded-lg text-xs font-medium bg-white dark:bg-neutral-700/80 text-neutral-800 dark:text-neutral-200 border border-neutral-200 dark:border-neutral-600 shadow-sm">DJI Mavic Mini 1</span>
+                                <span class="px-3 py-1.5 rounded-lg text-xs font-medium bg-white dark:bg-neutral-700/80 text-neutral-800 dark:text-neutral-200 border border-neutral-200 dark:border-neutral-600 shadow-sm">Macbook Air M1</span>
                             </div>
                         </div>
                     </div>
@@ -351,7 +366,7 @@
                 <p class="text-xs font-bold text-blue-500 uppercase tracking-widest" data-i18n="proj_tag">KARYA PILIHAN</p>
                 <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight" data-i18n="proj_title">Portofolio Video Showcase</h2>
                 <p class="text-base sm:text-lg text-neutral-600 dark:text-neutral-400" data-i18n="proj_desc">
-                    Tonton karya terbaik saya di bawah ini. Disusun dalam format sinematik 16:9 yang responsif dan siap diputar.
+                    Tonton karya terbaik saya di bawah ini!
                 </p>
 
                 <!-- Category Filter Buttons -->
@@ -360,15 +375,16 @@
                     <button onclick="filterProjects('showreel')" class="filter-btn px-4 py-2 rounded-full text-xs font-semibold bg-neutral-200 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-neutral-300 transition-all" data-category="showreel" data-i18n="filter_showreel">Showreel</button>
                     <button onclick="filterProjects('aftermovie')" class="filter-btn px-4 py-2 rounded-full text-xs font-semibold bg-neutral-200 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-neutral-300 transition-all" data-category="aftermovie" data-i18n="filter_aftermovie">Aftermovie & Event</button>
                     <button onclick="filterProjects('trailer')" class="filter-btn px-4 py-2 rounded-full text-xs font-semibold bg-neutral-200 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-neutral-300 transition-all" data-category="trailer" data-i18n="filter_trailer">Trailer & Teaser</button>
+                    <button onclick="filterProjects('motion')" class="filter-btn px-4 py-2 rounded-full text-xs font-semibold bg-neutral-200 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-neutral-300 transition-all" data-category="motion" data-i18n="filter_motion">Motion Graphic</button>
+                    <button onclick="filterProjects('personal')" class="filter-btn px-4 py-2 rounded-full text-xs font-semibold bg-neutral-200 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-neutral-300 transition-all" data-category="personal" data-i18n="filter_personal">Personal Project</button>
                 </div>
             </div>
 
             <!-- Video Grid -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8" id="videoGrid">
                 <!-- Video Item 1: Showreel Utama -->
+                <!-- Catatan Embed: Gunakan format https://www.youtube.com/embed/KODE_VIDEO -->
                 <div class="project-card apple-card rounded-2xl overflow-hidden flex flex-col" data-category="showreel">
-                    <!-- Responsive 16:9 Youtube Embed Container -->
-                    <!-- Catatan: Ganti 'YOUR_YOUTUBE_VIDEO_ID_1' atau 'dQw4w9WgXcQ' dengan ID Video YouTube asli Anda -->
                     <div class="relative w-full aspect-16-9 bg-black">
                         <iframe class="w-full h-full rounded-t-2xl" src="https://www.youtube.com/embed/dQw4w9WgXcQ?enablejsapi=1" title="Videographer Official Showreel" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
@@ -384,14 +400,13 @@
                             </p>
                         </div>
                         <div class="flex items-center gap-2 pt-2 border-t border-neutral-200 dark:border-neutral-800/80 text-xs text-neutral-500">
-                            <span>Premiere Pro</span> • <span>DaVinci Resolve</span> • <span>Iphone 16 Pro</span>
+                            <span>Premiere Pro</span> • <span>DaVinci Resolve</span> • <span>Sony A7III</span>
                         </div>
                     </div>
                 </div>
 
                 <!-- Video Item 2: Campus Expo Trailer -->
                 <div class="project-card apple-card rounded-2xl overflow-hidden flex flex-col" data-category="trailer">
-                    <!-- Catatan: Ganti 'YOUR_YOUTUBE_VIDEO_ID_2' dengan ID Video YouTube asli Anda -->
                     <div class="relative w-full aspect-16-9 bg-black">
                         <iframe class="w-full h-full rounded-t-2xl" src="https://www.youtube.com/embed/L_LUpnjgPso?enablejsapi=1" title="Campus Expo Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
@@ -414,7 +429,6 @@
 
                 <!-- Video Item 3: School Event Aftermovie -->
                 <div class="project-card apple-card rounded-2xl overflow-hidden flex flex-col" data-category="aftermovie">
-                    <!-- Catatan: Ganti 'YOUR_YOUTUBE_VIDEO_ID_3' dengan ID Video YouTube asli Anda -->
                     <div class="relative w-full aspect-16-9 bg-black">
                         <iframe class="w-full h-full rounded-t-2xl" src="https://www.youtube.com/embed/ScMzIvxBSi4?enablejsapi=1" title="High School Fest Aftermovie" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
@@ -437,7 +451,6 @@
 
                 <!-- Video Item 4: Commercial Product Edit -->
                 <div class="project-card apple-card rounded-2xl overflow-hidden flex flex-col" data-category="trailer">
-                    <!-- Catatan: Ganti 'YOUR_YOUTUBE_VIDEO_ID_4' dengan ID Video YouTube asli Anda -->
                     <div class="relative w-full aspect-16-9 bg-black">
                         <iframe class="w-full h-full rounded-t-2xl" src="https://www.youtube.com/embed/jNQXAC9IVRw?enablejsapi=1" title="Brand Commercial Promo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
@@ -454,6 +467,138 @@
                         </div>
                         <div class="flex items-center gap-2 pt-2 border-t border-neutral-200 dark:border-neutral-800/80 text-xs text-neutral-500">
                             <span>Commercial Grade</span> • <span>Macro Lighting</span> • <span>CapCut / Premiere</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Motion Sebuah Kisah -->
+                <div class="project-card apple-card rounded-2xl overflow-hidden flex flex-col" data-category="motion">
+                    <div class="relative w-full aspect-16-9 bg-black">
+                        <iframe class="w-full h-full rounded-t-2xl" src="https://www.youtube.com/embed/7az8bJosYy8?si=Zii9oUHPae9mXjvV" title="Motion Graphic Showcase" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-xs font-bold text-purple-500 uppercase tracking-wider">MOTION GRAPHIC</span>
+                                <span class="text-xs text-neutral-400 font-medium">04:59 Min</span>
+                            </div>
+                            <h3 class="text-xl font-bold tracking-tight">LED Backdrop Sebuah Kisah Klasik</h3>
+                            <p class="text-sm text-neutral-600 dark:text-neutral-400 mt-2 line-clamp-2">
+                                Eksplorasi grafis bergerak, tipografi kinetik dinamis, dan efek intro logo untuk LED Backdrop penampilan band.
+                            </p>
+                        </div>
+                        <div class="flex items-center gap-2 pt-2 border-t border-neutral-200 dark:border-neutral-800/80 text-xs text-neutral-500">
+                            <span>After Effects</span> • <span>Kinetic Type</span> • <span>Illustrator</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Motion Kita Ke Sana -->
+                <div class="project-card apple-card rounded-2xl overflow-hidden flex flex-col" data-category="motion">
+                    <div class="relative w-full aspect-16-9 bg-black">
+                        <iframe class="w-full h-full rounded-t-2xl" src="https://www.youtube.com/embed/wYpGkEdJnjA?si=JbnqgmFoRYzVRsfN" title="Motion Graphic Showcase" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-xs font-bold text-purple-500 uppercase tracking-wider">MOTION GRAPHIC</span>
+                                <span class="text-xs text-neutral-400 font-medium">05:04 Min</span>
+                            </div>
+                            <h3 class="text-xl font-bold tracking-tight">LED Backdrop Kita Ke Sana</h3>
+                            <p class="text-sm text-neutral-600 dark:text-neutral-400 mt-2 line-clamp-2">
+                                Eksplorasi grafis bergerak, tipografi kinetik dinamis, dan efek intro logo untuk LED Backdrop penampilan band.
+                            </p>
+                        </div>
+                        <div class="flex items-center gap-2 pt-2 border-t border-neutral-200 dark:border-neutral-800/80 text-xs text-neutral-500">
+                            <span>After Effects</span> • <span>Kinetic Type</span> • <span>Illustrator</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Motion Anak Sekolah -->
+                <div class="project-card apple-card rounded-2xl overflow-hidden flex flex-col" data-category="motion">
+                    <div class="relative w-full aspect-16-9 bg-black">
+                        <iframe class="w-full h-full rounded-t-2xl" src="https://www.youtube.com/embed/eE3bWypvaW8?si=ajRLT2woIrXr059s" title="Motion Graphic Showcase" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-xs font-bold text-purple-500 uppercase tracking-wider">MOTION GRAPHIC</span>
+                                <span class="text-xs text-neutral-400 font-medium">05:30 Min</span>
+                            </div>
+                            <h3 class="text-xl font-bold tracking-tight">LED Backdrop Anak Sekolah</h3>
+                            <p class="text-sm text-neutral-600 dark:text-neutral-400 mt-2 line-clamp-2">
+                                Eksplorasi grafis bergerak, tipografi kinetik dinamis, dan efek intro logo untuk LED Backdrop penampilan band.
+                            </p>
+                        </div>
+                        <div class="flex items-center gap-2 pt-2 border-t border-neutral-200 dark:border-neutral-800/80 text-xs text-neutral-500">
+                            <span>After Effects</span> • <span>Kinetic Type</span> • <span>Illustrator</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Personal: 80an -->
+                <div class="project-card apple-card rounded-2xl overflow-hidden flex flex-col" data-category="personal">
+                    <div class="relative w-full aspect-16-9 bg-black">
+                        <iframe class="w-full h-full rounded-t-2xl" src="https://www.youtube.com/embed/EjPewFQizqc" title="Cinematic Personal Travel Project" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-xs font-bold text-rose-500 uppercase tracking-wider">PERSONAL PROJECT</span>
+                                <span class="text-xs text-neutral-400 font-medium">07:09 Min</span>
+                            </div>
+                            <h3 class="text-xl font-bold tracking-tight">Dokumentasi Acara 17 Agustus 2025</h3>
+                            <p class="text-sm text-neutral-600 dark:text-neutral-400 mt-2 line-clamp-2">
+                                Proyek dokumentasi personal panitia 17 Agustus yang berfokus pada estetika visual.
+                            </p>
+                        </div>
+                        <div class="flex items-center gap-2 pt-2 border-t border-neutral-200 dark:border-neutral-800/80 text-xs text-neutral-500">
+                            <span>Color Grading</span> • <span>DaVinci Resolve</span> • <span>Documentary</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Personal: Hasta Perpis) -->
+                <div class="project-card apple-card rounded-2xl overflow-hidden flex flex-col" data-category="personal">
+                    <div class="relative w-full aspect-16-9 bg-black">
+                        <iframe class="w-full h-full rounded-t-2xl" src="https://www.youtube.com/embed/WW7zs3GM_0s?si=NqgZnqLXmrG3_gYZ" title="Cinematic Personal Travel Project" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-xs font-bold text-rose-500 uppercase tracking-wider">PERSONAL PROJECT</span>
+                                <span class="text-xs text-neutral-400 font-medium">07:09 Min</span>
+                            </div>
+                            <h3 class="text-xl font-bold tracking-tight">Perpisahan SMAN 5 Bogor T.A 2025</h3>
+                            <p class="text-sm text-neutral-600 dark:text-neutral-400 mt-2 line-clamp-2">
+                                Dokumentasi hari terakhir Hasta Brata (Nama angkatan di SMAN 5 Bogor).
+                            </p>
+                        </div>
+                        <div class="flex items-center gap-2 pt-2 border-t border-neutral-200 dark:border-neutral-800/80 text-xs text-neutral-500">
+                            <span>Color Grading</span> • <span>DaVinci Resolve</span> • <span>Documentary</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Personal: Hasta GTC) -->
+                <div class="project-card apple-card rounded-2xl overflow-hidden flex flex-col" data-category="personal">
+                    <div class="relative w-full aspect-16-9 bg-black">
+                        <iframe class="w-full h-full rounded-t-2xl" src="https://www.youtube.com/embed/hjHs1lJ3LS8?si=CVMZkVmaMACIBccH" title="Cinematic Personal Travel Project" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-xs font-bold text-rose-500 uppercase tracking-wider">PERSONAL PROJECT</span>
+                                <span class="text-xs text-neutral-400 font-medium">07:09 Min</span>
+                            </div>
+                            <h3 class="text-xl font-bold tracking-tight">Video Dokumentasi Goes To Campus</h3>
+                            <p class="text-sm text-neutral-600 dark:text-neutral-400 mt-2 line-clamp-2">
+                                Dokumentasi probadi kegiatan Goes To Campus.
+                            </p>
+                        </div>
+                        <div class="flex items-center gap-2 pt-2 border-t border-neutral-200 dark:border-neutral-800/80 text-xs text-neutral-500">
+                            <span>Color Grading</span> • <span>DaVinci Resolve</span> • <span>Documentary</span>
                         </div>
                     </div>
                 </div>
@@ -484,7 +629,7 @@
                     <div class="w-[calc(100%-3rem)] md:w-[calc(50%-2.5rem)] apple-card p-6 sm:p-8 rounded-2xl">
                         <div class="flex items-center justify-between gap-2 mb-2">
                             <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-blue-500/10 text-blue-600 dark:text-blue-400">SMA Campus Expo</span>
-                            <span class="text-xs font-medium text-neutral-400">2025</span>
+                            <span class="text-xs font-medium text-neutral-400">2023 - 2024</span>
                         </div>
                         <h3 class="text-xl font-bold tracking-tight" data-i18n="exp_1_role">Ketua Sub-Divisi Trailer & Aftermovie</h3>
                         <p class="text-sm font-medium text-neutral-500 dark:text-neutral-400 mt-1" data-i18n="exp_1_org">Campus Expo Official Media Team</p>
@@ -531,7 +676,7 @@
                             <span class="text-xs font-medium text-neutral-400">2022 - 2023</span>
                         </div>
                         <h3 class="text-xl font-bold tracking-tight" data-i18n="exp_3_role">Anggota Sekbid 9 (TIK / Media & Informasi)</h3>
-                        <p class="text-sm font-medium text-neutral-500 dark:text-neutral-400 mt-1" data-i18n="exp_3_org">OSIS SMA Negeri 5 Bogor</p>
+                        <p class="text-sm font-medium text-neutral-500 dark:text-neutral-400 mt-1" data-i18n="exp_3_org">OSIS SMA Negeri</p>
                         <ul class="mt-4 space-y-2 text-sm text-neutral-600 dark:text-neutral-300 list-disc list-inside">
                             <li data-i18n="exp_3_bullet1">Merancang dan menyunting pengumuman video digital internal sekolah.</li>
                             <li data-i18n="exp_3_bullet2">Melakukan liputan berkala kegiatan ekstra kurikuler dan prestasi siswa.</li>
@@ -568,7 +713,7 @@
                                 </div>
                                 <div>
                                     <p class="text-xs font-semibold text-neutral-400">Email Direct</p>
-                                    <a href="mailto:alexavisuals@example.com" class="font-medium hover:underline text-neutral-800 dark:text-neutral-200">mnabil.creative@gmail.com</a>
+                                    <a href="mailto:mnabil.creative@gmail.com" class="font-medium hover:underline text-neutral-800 dark:text-neutral-200">mnabil.creative@gmail.com</a>
                                 </div>
                             </div>
 
@@ -603,7 +748,7 @@
                                     </svg>
                                 </a>
                                 <!-- LinkedIn -->
-                                <a href="www.linkedin.com/in/muhammadnabil-adzikr" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="p-3 rounded-full bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-blue-700 hover:text-white transition-all">
+                                <a href="https://www.linkedin.com/in/muhammadnabil-adzikri/?isSelfProfile=true" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="p-3 rounded-full bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-blue-700 hover:text-white transition-all">
                                     <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
                                         <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
                                     </svg>
@@ -707,7 +852,7 @@
                 about_stack_hardware: "Kamera & Hardware",
                 proj_tag: "KARYA PILIHAN",
                 proj_title: "Portofolio Video Showcase",
-                proj_desc: "Tonton karya terbaik saya di bawah ini. Disusun dalam format sinematik 16:9 yang responsif dan siap diputar.",
+                proj_desc: "Tonton karya terbaik saya di bawah ini!",
                 filter_all: "Semua Video",
                 filter_showreel: "Showreel",
                 filter_aftermovie: "Aftermovie & Event",
@@ -730,14 +875,14 @@
                 exp_2_bullet2: "Menghasilkan konten Same Day Edit (SDE) harian untuk diunggah pada Instagram Reels & YouTube Shorts.",
                 exp_2_bullet3: "Mengelola arsip footage video mentah agar terstruktur dengan rapi untuk dokumentasi sekolah.",
                 exp_3_role: "Anggota Sekbid 9 (TIK / Media & Informasi)",
-                exp_3_org: "OSIS SMA Negeri",
+                exp_3_org: "OSIS SMA Negeri 5",
                 exp_3_bullet1: "Merancang dan menyunting pengumuman video digital internal sekolah.",
                 exp_3_bullet2: "Melakukan liputan berkala kegiatan ekstra kurikuler dan prestasi siswa.",
                 exp_3_bullet3: "Membantu tata kelola visual pada akun media sosial resmi OSIS.",
                 contact_tag: "HUBUNGI SAYA",
                 contact_title: "Mari Buat Karya Sinematik Bersama.",
                 contact_subtitle: "Punya ide proyek video, acara yang butuh dokumentasi profesional, atau posisi editor video freelance? Kirimkan pesan Anda melalui formulir atau kontak langsung di bawah.",
-                contact_location: "Jakarta / Indonesia (Available Worldwide Remote)",
+                contact_location: "Bogor / Indonesia (Available Worldwide Remote)",
                 contact_social: "Media Sosial",
                 form_name: "Nama Lengkap",
                 form_email: "Alamat Email",
@@ -772,7 +917,7 @@
                 about_stack_hardware: "Camera Gear & Hardware",
                 proj_tag: "FEATURED WORK",
                 proj_title: "Video Portfolio Showcase",
-                proj_desc: "Watch my best work below. Presented in responsive 16:9 cinematic embeds ready for instant playback.",
+                proj_desc: "Watch my best work below!",
                 filter_all: "All Videos",
                 filter_showreel: "Showreel",
                 filter_aftermovie: "Aftermovie & Events",
@@ -802,7 +947,7 @@
                 contact_tag: "GET IN TOUCH",
                 contact_title: "Let's Create Cinematic Content Together.",
                 contact_subtitle: "Have a video project idea, an event requiring professional documentation, or need a freelance video editor? Send a message via the form or connect directly below.",
-                contact_location: "Jakarta / Indonesia (Available Worldwide Remote)",
+                contact_location: "Bogor / Indonesia (Available Worldwide Remote)",
                 contact_social: "Social Networks",
                 form_name: "Full Name",
                 form_email: "Email Address",
@@ -813,6 +958,38 @@
         };
 
         let currentLang = 'id'; // Default Language
+
+        // Auto Convert YouTube links to Embed format on load
+        document.addEventListener("DOMContentLoaded", function() {
+            fixYouTubeEmbedLinks();
+        });
+
+        // Function to automatically turn watch/shorts/youtu.be URLs into /embed/ URLs
+        function fixYouTubeEmbedLinks() {
+            const iframes = document.querySelectorAll('iframe[src*="youtube"]');
+            iframes.forEach(iframe => {
+                let src = iframe.getAttribute('src');
+                if (src) {
+                    iframe.src = formatYouTubeUrl(src);
+                }
+            });
+        }
+
+        function formatYouTubeUrl(url) {
+            // Already an embed URL
+            if (url.includes('/embed/')) return url;
+
+            let videoId = '';
+            if (url.includes('youtu.be/')) {
+                videoId = url.split('youtu.be/')[1]?.split('?')[0]?.split('&')[0];
+            } else if (url.includes('watch?v=')) {
+                videoId = url.split('watch?v=')[1]?.split('&')[0];
+            } else if (url.includes('/shorts/')) {
+                videoId = url.split('/shorts/')[1]?.split('?')[0]?.split('&')[0];
+            }
+
+            return videoId ? `https://www.youtube.com/embed/${videoId}?enablejsapi=1` : url;
+        }
 
         // Initialize Dark Mode on Load
         if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
